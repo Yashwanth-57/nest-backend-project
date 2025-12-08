@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './user.entity';
 
+
 @Injectable()
 export class UsersService {
   constructor(
@@ -20,5 +21,11 @@ export class UsersService {
     const user = this.userRepo.create(data); // create entity instance
     return this.userRepo.save(user); // save to DB
   }
+
+ async findByEmail(email: string): Promise<User | null> {
+  return this.userRepo.findOne({ where: { email } });
+
+  }
+
 }
 
