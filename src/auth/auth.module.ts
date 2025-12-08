@@ -2,9 +2,15 @@ import { Module } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { UsersModule } from '../users/users.module';
+import { JwtModule } from '@nestjs/jwt';
 
 @Module({
-  imports: [UsersModule], // we need UsersService
+  imports: [UsersModule,
+     JwtModule.register({
+      secret: 'YOUR_SECRET_KEY', // replace with env variable later
+      signOptions: { expiresIn: '1h' },
+    }),
+  ], // we need UsersService
   controllers: [AuthController],
   providers: [AuthService],
 })
