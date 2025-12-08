@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       autoLoadEntities: true, //  load all entities automatically
       synchronize: true, //  auto-creates tables (only for dev)
     }),
+    UsersModule
   ],
 })
 export class AppModule {}
