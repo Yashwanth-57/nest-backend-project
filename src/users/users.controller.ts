@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post ,UseGuards, Patch, Delete, Param, ParseIntPipe} from '@nestjs/common';
 import { UsersService } from './users.service';
 import { User } from './user.entity';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { RegisterDto } from './dto/register.dto';
 import { UpdateUserDto } from './dto/update.dto';
 
@@ -25,7 +25,7 @@ export class UsersController {
 
  @Patch(':id')
 updateUser(
-  @Param('id', ParseIntPipe) id: string,
+  @Param('id', ParseIntPipe) id: number,
   @Body() updateUserDto: UpdateUserDto
 ) {
   return this.usersService.update(id, updateUserDto);

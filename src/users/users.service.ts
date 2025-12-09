@@ -6,6 +6,8 @@ import { UpdateUserDto } from './dto/update.dto';
 import { NotFoundException } from '@nestjs/common';
 
 
+
+
 @Injectable()
 export class UsersService {
   constructor(
@@ -30,7 +32,7 @@ export class UsersService {
   }
 
    //  Update logic
- async update(id: string, updateUserDto: UpdateUserDto) {
+ async update(id: number, updateUserDto: UpdateUserDto) {
   const user = await this.userRepo.preload({ id: +id, ...updateUserDto }); // +id converts string to number
   if (!user) {
     throw new NotFoundException(`User with id ${id} not found`);
@@ -47,6 +49,8 @@ export class UsersService {
     }
     return this.userRepo.remove(user);
   }
+
+  
 
 
 
