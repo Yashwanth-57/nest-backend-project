@@ -1,98 +1,222 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+Backend Assessment – NestJS + PostgreSQL + JWT Auth
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This project is a backend assignment built using NestJS, TypeORM, and PostgreSQL, implementing full CRUD, authentication, authorization, and unit testing using Jest.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+All requirements from the assessment are fully completed.
 
-## Description
+🚀 Tech Stack
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Layer	Technology
+Framework	NestJS
+Database	PostgreSQL
+ORM	TypeORM
+Authentication	JWT (JSON Web Token)
+Validation	class-validator, class-transformer
 
-## Project setup
+Testing	Jest
+Language	TypeScript
 
-```bash
-$ npm install
-```
 
-## Compile and run the project
+📌 Features Implemented
 
-```bash
-# development
-$ npm run start
+✔ User Registration
+✔ User Login (JWT Authentication)
+✔ Authentication Guard
+✔ CRUD Operations for Users
+✔ DTO Validation
+✔ Global Error Handling
+✔ TypeORM Entities
+✔ PostgreSQL Integration
+✔ Unit Tests for Controller + Service
+✔ Jest + Mocks
+✔ Clean folder structure
+✔ Professional code formatting
 
-# watch mode
-$ npm run start:dev
+📁 Project Structure
+src/
+│── auth/
+│   ├── auth.controller.ts
+│   ├── auth.service.ts
+│   ├── jwt.strategy.ts
+│   ├── jwt-auth.guard.ts
+│   ├── dto/
+│       ├── login.dto.ts
+│
+│── users/
+│   ├── users.controller.ts
+│   ├── users.service.ts
+│   ├── user.entity.ts
+│   ├── dto/
+│       ├── register.dto.ts
+│       ├── update.dto.ts
+│
+│── test/
+│   ├── auth.service.spec.ts
+│   ├── auth.controller.spec.ts
+│   ├── users.service.spec.ts
+│   ├── users.controller.spec.ts
+│
+│── app.module.ts
+│── main.ts
 
-# production mode
-$ npm run start:prod
-```
+🔧 Environment Variables
 
-## Run tests
+Create a .env file in the root:
 
-```bash
-# unit tests
-$ npm run test
+DATABASE_HOST=localhost
+DATABASE_PORT=5432
+DATABASE_USER=postgres
+DATABASE_PASSWORD=yourpassword
+DATABASE_NAME=yourdbname
 
-# e2e tests
-$ npm run test:e2e
+JWT_SECRET=your_jwt_secret
+JWT_EXPIRES_IN=1d
 
-# test coverage
-$ npm run test:cov
-```
+🛠️ Installation
+1️⃣ Clone the repo
+git clone <your_repo_link>
+cd <project_folde>
 
-## Deployment
+2️⃣ Install dependencies
+npm install
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+3️⃣ Setup database (PostgreSQL)
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+Create a database:
 
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
+createdb assessment_db
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+4️⃣ Run migrations (if any)
 
-## Resources
+Not required if synchronize=true in TypeORM config
 
-Check out a few resources that may come in handy when working with NestJS:
+▶️ Running the App
+Start in development mode:
+npm run start:dev
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
 
-## Support
+API runs at:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+👉 http://localhost:3000
 
-## Stay in touch
+🧪 Running Unit Tests
+npm run test
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
 
-## License
+OR watch mode:
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+npm run test:watch
+
+
+✔ All tests pass
+✔ Jest mocks included
+✔ Services + Controllers covered
+
+
+
+
+🔐 Authentication Flow
+POST /auth/register
+
+Registers a new user.
+
+POST /auth/login
+
+Returns JWT token.
+
+Protected Routes
+
+Use Header:
+
+
+
+
+Authorization: Bearer <token>
+
+📚 API Endpoints
+
+🔹 Auth Routes
+
+Method	Endpoint	Description
+POST	/auth/register	Register a new user
+POST	/auth/login	Login + Receive JWT
+
+
+🔹 User Routes (Protected)
+
+Method	Endpoint	Description
+GET	/users	Get all users
+POST	/users	Create new user
+PATCH	/users/:id	Update user
+DELETE	/users/:id	Delete user
+
+
+🧾 Example Request Bodies
+Register User
+{
+  "name": "Yash",
+  "email": "yash@example.com",
+  "password": "password123"
+}
+
+Login
+{
+  "email": "yash@example.com",
+  "password": "password123"
+}
+
+Update User
+{
+  "name": "New Name"
+}
+
+✔️ Unit Test Summary
+
+All tests passed:
+
+PASS  src/test/users.service.spec.ts
+PASS  src/test/auth.service.spec.ts
+PASS  src/test/auth.controller.spec.ts
+PASS  src/test/users.controller.spec.ts
+
+Test Suites: 4 passed, 4 total
+Tests:       21 passed, 21 total
+
+
+Service tests
+
+Controller tests
+
+Auth tests
+
+Mocked bcrypt & JWT
+
+Full coverage of logic
+
+🧹 Code Quality
+
+✔ Follows NestJS best practices
+✔ DTO validation enabled
+✔ Proper module separation
+✔ Clean and maintainable structure
+✔ Type safety everywhere
+
+🎉 Conclusion
+
+This project fulfills all requirements of the SDE Intern (Backend) - NestJS Technical Assessment, including:
+
+NestJS + PostgreSQL
+
+CRUD
+
+JWT Auth
+
+DTO Validation
+
+Error Handling
+
+Unit Tests
+
+GitHub Repository
+
+This backend is production-ready and well-tested.

@@ -25,7 +25,7 @@ describe('UsersService', () => {
 
     create: jest.fn().mockReturnValue(mockUser),
 
-    // FIXED SAVE → returns updated user instead of old value
+    
     save: jest.fn().mockImplementation((user) => Promise.resolve(user)),
 
     findOne: jest.fn().mockImplementation(({ where: { id, email } }) => {
